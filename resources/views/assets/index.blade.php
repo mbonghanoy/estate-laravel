@@ -29,7 +29,7 @@
         <td>
             <a href="delete/{{ $asset->id }}">Delete</a>
         </td>
-        </tr>
+    </tr>
     @endforeach
     </tbody>
 </table>
