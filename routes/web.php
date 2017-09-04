@@ -13,6 +13,7 @@
 Route::resource('employee', 'EmployeeController');
 Route::resource('assets', 'AssetController');
 
+Route::get('reports', 'ReportController@view');
 Route::get('delete/{id}', 'AssetController@destroy');
 
 Auth::routes();

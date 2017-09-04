@@ -42,6 +42,12 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'cost' => 'required | numeric',
+            'description' => 'required',
+        ]);
+
         Asset::create($request->all());
 
         return redirect()->route('assets.index');
@@ -85,6 +91,11 @@ class AssetController extends Controller
     public function update(Request $request, $id)
     {
         $asset = Asset::find($id);
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'cost' => 'required | numeric',
+        ]);
         $asset->update($request->all());
 
         return redirect()->route('assets.index');
