@@ -12,7 +12,7 @@
             <th>Last Name</th>
             <th>First Name</th>
             <th>Middle Name</th>
-            <th>Job Position</th>
+            <th>Job Title</th>
             <th></th>
         </tr>
     </thead>

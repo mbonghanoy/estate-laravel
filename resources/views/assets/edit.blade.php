@@ -8,7 +8,6 @@
   <div class="form-group">
     <label for="name">Name</label>
     <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" value="{{ $asset->name }}">
-    <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="description">Description</label>

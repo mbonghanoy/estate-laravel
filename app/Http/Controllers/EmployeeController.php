@@ -37,6 +37,13 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'job_title' => 'required'
+        ]);
+
         Employee::create($request->all());
 
         return redirect()->route('employee.index');
@@ -48,19 +55,19 @@ class EmployeeController extends Controller
      * @param  \App\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
+        $employee = Employee::find($id);
 
+        return view('employee.edit', [
+            'employee' => $employee
+        ]);
     }
 
     /**
@@ -70,9 +77,20 @@ class EmployeeController extends Controller
      * @param  \App\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request, $id)
     {
 
+        $this->validate($request, [
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'job_title' => 'required'
+        ]);
+
+        $employee = Employee::find($id);
+        $employee->update($request->all());
+
+        return redirect()->route('employee.index');
     }
 
     /**
@@ -86,3 +104,4 @@ class EmployeeController extends Controller
 
     }
 }
+
